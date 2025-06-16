@@ -40,20 +40,40 @@ h1 {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    background-color: #fff;
-    border: 1px solid #000;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    background-color: #e6b89c;
+    background-image: 
+        linear-gradient(to right, transparent calc(100% - 1px), #000 1px),
+        linear-gradient(to bottom, transparent calc(100% - 1px), #000 1px);
     margin: 0 auto;
+    width: 450px;
+    height: 450px;
+    position: relative;
+    padding: 20px;
 }
 
 .board-cell {
-    width: 30px;
-    height: 30px;
-    border-right: 1px solid #000;
-    border-bottom: 1px solid #000;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     position: relative;
-    box-sizing: border-box;
+    z-index: 1;
+}
+
+.board-cell::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.board-cell:hover:not(.has-piece)::before {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
 }
 
 /* 移除最后一列和最后一行的额外边框 */
@@ -72,13 +92,14 @@ h1 {
 .board-cell.black::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 24px;
     height: 24px;
     background-color: #000;
     border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transform: translate(-50%, -50%);
 }
 
 .board-cell.white::after {
@@ -92,6 +113,7 @@ h1 {
     background-color: #fff;
     border-radius: 50%;
     border: 1px solid #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 600px) {
@@ -103,4 +125,4 @@ h1 {
         width: 16px;
         height: 16px;
     }
-}     
+}
