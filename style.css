@@ -1,0 +1,98 @@
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+#current-player {
+    font-weight: bold;
+    color: #000;
+}
+
+#restart-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    background-color: #45a049;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 2px;
+    background-color: #e0b060;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.board-cell {
+    width: 30px;
+    height: 30px;
+    background-color: #e0b060;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.board-cell:hover {
+    background-color: #d0a050;
+}
+
+.board-cell.black::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.board-cell.white::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+@media (max-width: 600px) {
+    .board-cell {
+        width: 20px;
+        height: 20px;
+    }
+    .board-cell.black::after, .board-cell.white::after {
+        width: 16px;
+        height: 16px;
+    }
+}
