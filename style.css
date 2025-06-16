@@ -41,24 +41,32 @@ h1 {
 #game-board {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
-    gap: 2px;
-    background-color: #e0b060;
-    padding: 10px;
-    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #000;
     margin: 0 auto;
 }
 
 .board-cell {
     width: 30px;
     height: 30px;
-    background-color: #e0b060;
-    border-radius: 50%;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
     cursor: pointer;
     position: relative;
+    box-sizing: border-box;
+}
+
+/* 移除最后一列和最后一行的额外边框 */
+.board-cell:nth-child(15n) {
+    border-right: none;
+}
+
+.board-cell:nth-last-child(-n+15) {
+    border-bottom: none;
 }
 
 .board-cell:hover {
-    background-color: #d0a050;
+    background-color: #f0f0f0;
 }
 
 .board-cell.black::after {
@@ -95,4 +103,4 @@ h1 {
         width: 16px;
         height: 16px;
     }
-}
+}     
