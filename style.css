@@ -42,15 +42,17 @@ h1 {
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(14, 1fr);
-    background-color: #e6b89c;
+    background-color: #fff;
     background-image: 
-        linear-gradient(to right, transparent calc(100% - 1px), #000 1px),
-        linear-gradient(to bottom, transparent calc(100% - 1px), #000 1px);
+        linear-gradient(to right, #000 1px, transparent 1px),
+        linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-size: calc(100% / 14) 100%, 100% calc(100% / 14);
+    background-position: 0 0, 0 0;
     margin: 0 auto;
     width: 450px;
     height: 450px;
     position: relative;
-    padding: 20px;
+    border: 2px solid #333;
 }
 
 .board-cell {
